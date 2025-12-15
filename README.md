@@ -1,13 +1,13 @@
-# EPUBSPLIT - EPUB Splitting Tool
+# 📖 EPUBSPLIT - EPUB Splitting Tool
 
 An interactive tool to split EPUB files into individual chapters. Allows selecting which chapters to extract and save them as separate EPUB files.
 
-## Requirements
+## 🔧 Requirements
 
 - Python 3.13 or higher
 - Dependencies specified in `pyproject.toml`
 
-## Installation
+## 🚀 Installation
 
 ### Option 1: With Dev Container (Recommended)
 
@@ -42,7 +42,7 @@ An interactive tool to split EPUB files into individual chapters. Allows selecti
    pip install beautifulsoup4 html5lib six
    ```
 
-## Usage
+## 📝 Usage
 
 ### Interactive execution (recommended)
 
@@ -82,7 +82,7 @@ python split_by_indices.py input/my_book.epub output/result 1 2 3
 
 Splits chapters 1, 2, and 3 from the specified EPUB.
 
-## Directory structure
+## 📁 Directory structure
 
 ```
 epubsplit/
@@ -104,7 +104,7 @@ epubsplit/
 - The content of `input/` and `output/` is NOT versioned
 - Only locally generated EPUBs are automatically ignored
 
-## Project files
+## 📋 Project files
 
 - **main.py** - Main interactive script (recommended entry point)
 - **epubsplit.py** - Main library for manipulating EPUB
@@ -112,10 +112,10 @@ epubsplit/
 - **.devcontainer/** - Configuration to run in Docker container
   - `devcontainer.json` - VS Code Dev Containers configuration
 
-## License
+## ⚖️ License
 
 GPL v3
 
-## Credits
+## 🙏 Credits
 
 - **epubsplit.py**: Based on [JimmXinu's EpubSplit](https://github.com/JimmXinu/EpubSplit/blob/main/epubsplit.py)
