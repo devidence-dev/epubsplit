@@ -1,0 +1,21 @@
+{
+  "name": "epubsplit",
+  "image": "mcr.microsoft.com/devcontainers/python:dev-3.13",
+  "remoteUser": "root",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance"
+      ]
+    }
+  },
+  "postCreateCommand": "pip install --no-cache-dir uv && uv sync",
+  "mounts": [
+    "source=${localEnv:HOME}/.ssh,target=/root/.ssh,readonly"
+  ],
+  
+  "remoteEnv": {
+    "GIT_SSH_COMMAND": "ssh -v"
+  }
+}
