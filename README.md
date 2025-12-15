@@ -1,121 +1,121 @@
-# EPUBSPLIT - Herramienta de División de EPUB
+# EPUBSPLIT - EPUB Splitting Tool
 
-Una herramienta interactiva para dividir archivos EPUB en capítulos individuales. Permite seleccionar qué capítulos extraer y guardarlos como archivos EPUB separados.
+An interactive tool to split EPUB files into individual chapters. Allows selecting which chapters to extract and save them as separate EPUB files.
 
-## Requisitos
+## Requirements
 
-- Python 3.13 o superior
-- Dependencias especificadas en `pyproject.toml`
+- Python 3.13 or higher
+- Dependencies specified in `pyproject.toml`
 
-## Instalación
+## Installation
 
-### Opción 1: Con Dev Container (Recomendado)
+### Option 1: With Dev Container (Recommended)
 
-1. **Requisitos:**
-   - Docker Desktop instalado
-   - VS Code con extensión "Dev Containers"
+1. **Requirements:**
+   - Docker Desktop installed
+   - VS Code with "Dev Containers" extension
 
-2. **Abrir en Dev Container:**
-   - Abre la carpeta del proyecto en VS Code
-   - Presiona `Cmd+Shift+P` (macOS) o `Ctrl+Shift+P` (Linux/Windows)
-   - Escribe y selecciona: **"Dev Containers: Reopen in Container"**
-   - Espera a que se construya la imagen y se inicie el contenedor
+2. **Open in Dev Container:**
+   - Open the project folder in VS Code
+   - Press `Cmd+Shift+P` (macOS) or `Ctrl+Shift+P` (Linux/Windows)
+   - Type and select: **"Dev Containers: Reopen in Container"**
+   - Wait for the image to build and the container to start
 
-3. **Ejecutar dentro del contenedor:**
+3. **Run inside the container:**
    ```bash
    python3 main.py
    ```
 
-### Opción 2: Instalación local
+### Option 2: Local Installation
 
-1. **Clonar o descargar el proyecto**
+1. **Clone or download the project**
    ```bash
    cd epubsplit
    ```
 
-2. **Instalar dependencias**
+2. **Install dependencies**
    ```bash
-   # Con uv (recomendado)
+   # With uv (recommended)
    uv sync
    
-   # O con pip tradicional
+   # Or with traditional pip
    pip install beautifulsoup4 html5lib six
    ```
 
-## Uso
+## Usage
 
-### Ejecución interactiva (recomendado)
+### Interactive execution (recommended)
 
 ```bash
 python main.py
 ```
 
-El programa te guiará a través de:
-1. Seleccionar un archivo EPUB del directorio `input/`
-2. Ver la lista de capítulos disponibles
-3. Elegir entre dividir todo o una selección
-4. Especificar el rango de capítulos a extraer (si aplica)
-5. Los archivos se crearán en `output/{nombre-del-archivo}/`
+The program will guide you through:
+1. Select an EPUB file from the `input/` directory
+2. View the list of available chapters
+3. Choose between splitting all or a selection
+4. Specify the range of chapters to extract (if applicable)
+5. Files will be created in `output/{file-name}/`
 
-### Ejemplos de rangos
+### Range examples
 
-- `5` → Solo el capítulo 5
-- `1-5` → Capítulos del 1 al 5
-- `1,3,5` → Capítulos 1, 3 y 5
-- `1-3,5,7-9` → Capítulos 1-3, 5 y 7-9
+- `5` → Only chapter 5
+- `1-5` → Chapters 1 to 5
+- `1,3,5` → Chapters 1, 3, and 5
+- `1-3,5,7-9` → Chapters 1-3, 5, and 7-9
 
-### Scripts de línea de comandos
+### Command line scripts
 
-Si prefieres usar los scripts individuales:
+If you prefer to use individual scripts:
 
-#### Ver capítulos de un EPUB
+#### View chapters of an EPUB
 ```bash
-python list_split_lines.py input/mi_libro.epub
+python list_split_lines.py input/my_book.epub
 ```
 
-Muestra todos los capítulos con su índice, título y ubicación en el archivo.
+Shows all chapters with their index, title, and location in the file.
 
-#### Dividir capítulos específicos
+#### Split specific chapters
 ```bash
-python split_by_indices.py input/mi_libro.epub output/resultado 1 2 3
+python split_by_indices.py input/my_book.epub output/result 1 2 3
 ```
 
-Divide los capítulos 1, 2 y 3 del EPUB especificado.
+Splits chapters 1, 2, and 3 from the specified EPUB.
 
-## Estructura de directorios
+## Directory structure
 
 ```
 epubsplit/
-├── .devcontainer/              # Configuración para Dev Containers
-│   └── devcontainer.json       # Configuración de VS Code
-├── input/                       # Coloca aquí tus archivos EPUB
+├── .devcontainer/              # Dev Containers configuration
+│   └── devcontainer.json       # VS Code configuration
+├── input/                       # Place your EPUB files here
 │   └── .gitkeep
-├── output/                      # Se crea automáticamente con resultados
+├── output/                      # Automatically created with results
 │   └── .gitkeep
-├── main.py                      # Script principal interactivo
-├── epubsplit.py                 # Librería principal
-├── pyproject.toml               # Configuración del proyecto
-├── README.md                    # Este archivo
-└── .gitignore                   # Archivo de ignorados de Git
+├── main.py                      # Main interactive script
+├── epubsplit.py                 # Main library
+├── pyproject.toml               # Project configuration
+├── README.md                    # This file
+└── .gitignore                   # Git ignore file
 ```
 
-**Notas sobre Git:**
-- Las carpetas `input/` y `output/` están versionadas (archivos `.gitkeep`)
-- El contenido de `input/` y `output/` NO se versiona
-- Solo los EPUBs que generes localmente se ignoran automáticamente
+**Notes about Git:**
+- The `input/` and `output/` folders are versioned (`.gitkeep` files)
+- The content of `input/` and `output/` is NOT versioned
+- Only locally generated EPUBs are automatically ignored
 
-## Archivos del proyecto
+## Project files
 
-- **main.py** - Script interactivo principal (punto de entrada recomendado)
-- **epubsplit.py** - Librería principal para manipular EPUB
-- **pyproject.toml** - Configuración del proyecto y dependencias
-- **.devcontainer/** - Configuración para ejecutar en contenedor Docker
-  - `devcontainer.json` - Configuración de VS Code Dev Containers
+- **main.py** - Main interactive script (recommended entry point)
+- **epubsplit.py** - Main library for manipulating EPUB
+- **pyproject.toml** - Project configuration and dependencies
+- **.devcontainer/** - Configuration to run in Docker container
+  - `devcontainer.json` - VS Code Dev Containers configuration
 
-## Licencia
+## License
 
 GPL v3
 
-## Autor original
+## Credits
 
-Jim Miller (epubsplit base)
+- **epubsplit.py**: Based on [JimmXinu's EpubSplit](https://github.com/JimmXinu/EpubSplit/blob/main/epubsplit.py)
