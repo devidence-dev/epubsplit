@@ -12,7 +12,7 @@
   },
   "postCreateCommand": "pip install --no-cache-dir uv && uv sync",
   "mounts": [
-    "source=${localEnv:HOME}/.ssh,target=/root/.ssh,readonly"
+    "type=bind,source=${localEnv:HOME}/.ssh,target=/root/.ssh,readonly"
   ],
   
   "remoteEnv": {
